@@ -4,6 +4,8 @@ require 'blu'
 class LoadBlu < Test::Unit::TestCase
   def setup
     @b = Blu.new File.expand_path(File.dirname(__FILE__)) + "/blus/error.blu"
+    @stun = Blu.new File.expand_path(File.dirname(__FILE__)) + "/blus/stun.blu"
+
   end
 
   # def teardown
@@ -13,7 +15,7 @@ class LoadBlu < Test::Unit::TestCase
     assert_equal( "type    square\nsustain 0.266\ndecay   0.187\nfreq    0.268\nslide   0.179\nsquare  0.326\nvibe    0.227\nvspeed  0.231", @b.instance_variable_get("@raw"))
   end
   
-  def test_parse_error_blue
+  def test_parse_error_blu
     @b.parse!
     assert_equal(
     {:type   => :square,
@@ -24,5 +26,16 @@ class LoadBlu < Test::Unit::TestCase
     :square =>  0.326,
     :vibe  =>  0.227,
     :vspeed =>  0.231}, @b.settings)
+  end
+  
+  def test_parse_stun_blue
+    @stun.parse!
+    assert_equal(
+    {:type    => :sawtooth,
+    :sustain => 0.306,
+    :decay   => 0.477,
+    :freq    => 0.429,
+    :slide   => 0.217,
+    :repeat  => 0.677}, @stun.settings)
   end
 end
