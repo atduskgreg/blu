@@ -2,6 +2,8 @@ A library for working with .blu sound description files for _why's Bloopsaphone.
 
     Blu.load(my_bloop, "path/to/sound.blu")
     
-Coming soon: sound serialization. More about Bloopsaphone here: http://github.com/mental/bloopsaphone
+See example_usage.rb for more details. Read more about Bloopsaphone here: http://github.com/mental/bloopsaphone
 
 Contribute your sounds to the Bloopsbank! http://github.com/atduskgreg/bloopsbank/tree
+
+Coming soon: sound serialization.
